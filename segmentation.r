@@ -1,5 +1,5 @@
 require("plotrix")
-customer_data=read.csv("/customers.csv") 
+customer_data = read.csv("/customers.csv")  # nolint
 str(customer_data)
 
 names(customer_data)
