@@ -11,7 +11,7 @@ To sell to each group effectively, they categorize consumers based on shared cha
 <h2>DATASET : </h2>
 <p>customers.csv </p>
 
-<ol><h2>PACKAGES REQURIED : </h2>
+<h2>PACKAGES REQURIED : </h2><ul>
 <li>plotrix </li>
 <li>purr </li>
 <li>cluster</li>
@@ -21,4 +21,4 @@ To sell to each group effectively, they categorize consumers based on shared cha
 <li>factoextra</li>
 <li>ggplot2</li>
 <li>dplyr</li>
-</ol>
+</ul>
