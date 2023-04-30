@@ -1,4 +1,5 @@
-customer_data=read.csv("/Customers.csv")
+require("plotrix")
+customer_data=read.csv("/customers.csv") 
 str(customer_data)
 
 names(customer_data)
