@@ -1,4 +1,7 @@
-# customer-segmentation
+<h1> Customer-Segmentation-using-R </h1>
+
+<p> Customer segmentation project </p>
+
 <h2>Introduction : </h2>
 
 <p> <ul>
@@ -23,27 +26,16 @@ To sell to each group effectively, they categorize consumers based on shared cha
 <li>dplyr</li>
 </ul>
 
-K-means Algorithm
-While using the k-means clustering algorithm, the first step is to indicate the number of clusters (k) that we wish to produce in the final output. The algorithm starts by selecting k objects from dataset randomly that will serve as the initial centers for our clusters. These selected objects are the cluster means, also known as centroids. Then, the remaining objects have an assignment of the closest centroid. This centroid is defined by the Euclidean Distance present between the object and the cluster mean. We refer to this step as “cluster assignment”.
+<h2>K-means Algorithm<h2>
 
-When the assignment is complete, the algorithm proceeds to calculate new mean value of each cluster present in the data. After the recalculation of the centers, the observations are checked if they are closer to a different cluster. Using the updated cluster mean, the objects undergo reassignment. This goes on repeatedly through several iterations until the cluster assignments stop altering. The clusters that are present in the current iteration are the same as the ones obtained in the previous iteration. Summing up the K-means clustering –
+<p>While using the k-means clustering algorithm, the first step is to indicate the number of clusters (k) that we wish to produce in the final output. The algorithm starts by selecting k objects from dataset randomly that will serve as the initial centers for our clusters. These selected objects are the cluster means, also known as centroids. Then, the remaining objects have an assignment of the closest centroid. This centroid is defined by the Euclidean Distance present between the object and the cluster mean. We refer to this step as “cluster assignment”.</p>
 
-We specify the number of clusters that we need to create.
-The algorithm selects k objects at random from the dataset. This object is the initial cluster or mean.
-The closest centroid obtains the assignment of a new observation. We base this assignment on the Euclidean Distance between object and the centroid.
-k clusters in the data points update the centroid through calculation of the new mean values present in all the data points of the cluster. The kth cluster’s centroid has a length of p that contains means of all variables for observations in the k-th cluster. We denote the number of variables with p.
-Iterative minimization of the total within the sum of squares. Then through the iterative minimization of the total sum of the square, the assignment stop wavering when we achieve maximum iteration. The default value is 10 that the R software uses for the maximum iterations.
-we calculate the clustering algorithm for several values of k. This can be done by creating a variation within k from 1 to 10 clusters. We then calculate the total intra-cluster sum of square (iss). Then, we proceed to plot iss based on the number of k clusters.
-This plot denotes the appropriate number of clusters required in our model. In the plot, the location of a bend or a knee is the indication of the optimum number of clusters. Let us implement this in R as follows –
-
-Code: library(purrr) set.seed(123)
-function to calculate total intra-cluster sum of square iss <- function(k) { kmeans(customer_data[,3:5],k,iter.max=100,nstart=100,algorithm="Lloyd" ) $tot.withinss }
-
-k.values <- 1:10 iss_values <- map_dbl(k.values, iss)
-
-plot(k.values, iss_values, type="b", pch = 19, frame = FALSE, xlab="Number of clusters K", ylab="Total intra-clusters sum of squares")
-
-Visualizing the Clustering Results using the First Two Principle Components
-A line chart or line plot or line graph or curve chart is a type of chart which displays information as a series of data points called 'markers' connected by straight line segments. It is a basic type of chart common in many fields. Used across many fields, this type of graph can be quite helpful in depicting the changes in values over time. We are going to use ggplot for depicting the line plot.
-
-Code: set.seed(1) ggplot(customer_data, aes(x =Annual.Income..k.., y = Spending.Score..1.100.)) + geom_point(stat = "identity", aes(color = as.factor(k6$cluster))) + scale_color_discrete(name=" ", breaks=c("1", "2", "3", "4", "5","6"), labels=c("Cluster 1", "Cluster 2", "Cluster 3", "Cluster 4", "Cluster 5","Cluster 6")) + ggtitle("Segments of Mall Customers", subtitle = "Using K-means Clustering")
+<p>Process:
+1. Randomly select 3 points/centroids for clustering
+2. Calculate distance of each datapoint from the centroids. The datapoint
+	belongs to the centroid closest to it.
+3. Calculate SSE. The goal is to reduce the SSE (sum of squared errors)
+4. Update centroids by estimating the mean of each cluster
+5. Iterate from step 2 unless the value converges for centroids (centroids no
+	longer move much)
+</p>
