@@ -1,5 +1,5 @@
 require("plotrix")
-customer_data = read.csv("/customers.csv")  # nolint
+customer_data = read.csv("D:/Work/customer-segmentation/customers.csv")  # nolint
 str(customer_data)
 
 names(customer_data)
@@ -160,7 +160,7 @@ ggplot(customer_data, aes(x =Annual.Income..k.., y = Spending.Score..1.100.)) +
   scale_color_discrete(name=" ",
                        breaks=c("1", "2", "3", "4", "5","6"),
                        labels=c("Cluster 1", "Cluster 2", "Cluster 3", "Cluster 4", "Cluster 5","Cluster 6")) +
-  ggtitle("Segments of Mall Customers", subtitle = "Using K-means Clustering")
+  ggtitle("Segments of Customers", subtitle = "Using K-means Clustering")
 
 
 
@@ -169,7 +169,7 @@ ggplot(customer_data, aes(x =Spending.Score..1.100., y =Age)) +
   scale_color_discrete(name=" ",
                        breaks=c("1", "2", "3", "4", "5","6"),
                        labels=c("Cluster 1", "Cluster 2", "Cluster 3", "Cluster 4", "Cluster 5","Cluster 6")) +
-  ggtitle("Segments of Mall Customers", subtitle = "Using K-means Clustering")
+  ggtitle("Segments of Customers", subtitle = "Using K-means Clustering")
 
 
 
